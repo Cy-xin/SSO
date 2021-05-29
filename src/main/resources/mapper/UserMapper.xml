@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xin.sso.dao.UserDao">
+
+    <resultMap id="resultUser" type="com.xin.sso.entity.User">
+        <!--
+           id：指定主键列的封装规则（主键也可以使用result来定义）
+           column：指定哪一列
+           property：指定对应的javaBean属性
+        -->
+        <id column="id" property="id"/>
+        <!--result：定义普通列封装规则-->
+        <result column="user_name" property="userName"/>
+        <result column="user_alias" property="userAlias"/>
+        <result column="userPassword" property="userPassword"/>
+        <result column="sex" property="sex"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="register_date" property="registerDate"/>
+        <result column="user_state" property="userState"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <select id="loginUser" resultMap="resultUser">
+        select *
+        from user
+        where user_name = #{userName}
+          and user_password = #{userPassword}
+    </select>
+
+</mapper>

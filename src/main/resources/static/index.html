@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/login.css" type="text/css" />
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        function refreshVerify() {
+            document.getElementById("imgVerify").src = "/verifyCode?" + Math.random();
+        }
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="container">
+        <h1>Welcome</h1>
+        <form id="from" action="/login" method="post">
+            <input type="text" name="name" placeholder="user login"/>
+            <input type="password" name="pwd" placeholder="password"/>
+            <input type="text" name="verifyCode" placeholder="请输入验证码" style="width: 220px; margin-left: 355px;">
+            <img id="imgVerify" src="/verifyCode" onclick="refreshVerify()" style="position: fixed; margin: -65px; margin-left: 580px; border-radius: 10px; height: 30px;"/>
+            <input type="submit" value="Login"/>
+        </form>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
